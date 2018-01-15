@@ -1,0 +1,51 @@
+CSE 331 Homework 3.  Answers to Written questions.
+Edit this file to supply your answers.
+
+Name:  Chenyang Fang;
+
+Problem 6.
+
+(a) Because the sequence of Fibonacci starts at index 0, the 0 should not be illegal
+	argument but the condition in the java class made it throw exception when the argument
+	is 0. Therefore, I have to modify the first line "if condition" to "n < 0" so that
+	it would throw exception for negative argument
+	
+(b) Because the sequence of Fibonacci starts at index 0, the argument 0 and 1 should be the base
+	cases for the Fibonacci problem. Instead of returning the right value of the term at index 0
+	in this sequence, it throws exception. I have to modified the if condition to "n < 0".
+
+
+(c) Because each subsequent term after the first two terms in the Fibonacci is the sum of the previous 
+	two terms and this java class instead set the third term(when n is 2) to the base case and return the 
+	nth term as the subtraction of the previous two terms. Therefore, I have to modified the condition in the 
+	"else if" to "n < 2" and the return statement in the end to the sum of the previous two terms
+ 
+
+Problem 7. 
+Q1:
+First, in the constructor, since the given parameter "volume" is named the same as the 
+variable inside the ball object. We need to use "this.volume" to reference the variable 
+in the object so that we will be able to set the variable's value to the given volume.
+
+Second, in the return volume method. we should return the volume stored inside the object instead
+of return 0. So I set "return this.volume" in the end
+
+Q2: 
+I prefer to keep track of the total volume of the balls in the container so that 
+if the set contains too many balls, we do not have to go for-loop through the set to add up the volume
+because it would take a lot amount of time. Also, as the set remains unchanged, if there are many calls
+to the getVolume(), we can just return the variable which tracks the volume instead of looping through the 
+set every time this method is called. Therefore, the second approach would be more efficient than the first one;
+
+Q3: 
+1. one way to implement this is to make Ball object implement the comparator interface so that we can create a list in
+   a method in container to sort ball objects in the container and write a method return a new unmodifiable sorted set
+   so that in box class we can just simply return the iterator of that sorted set
+   
+2. second way to implement it is to use the iterator returned by the container to add every ball into a brand new list and 
+   then sort it using comparator defined in the Box object and Collections methods backed up by the java API
+   
+   
+   Personally, I would prefer the second one because we are implementing the method in the box, we do not want to change anything
+   in the other classes since this might change other attributes of those objects. Therefore the second way is better because we 
+   did not interfere with other classes that were already well-defined and written.
